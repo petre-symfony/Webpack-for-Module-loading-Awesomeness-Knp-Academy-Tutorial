@@ -15,5 +15,5 @@
 /vendor/
 /web/bundles/
 /node_modules
-/nbproject/
+/nbproject
 /web/build/*
