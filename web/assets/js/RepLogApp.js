@@ -216,5 +216,5 @@ class RepLogApp {
 </tr>
 `;
 
-  window.RepLogApp = RepLogApp;
+module.exports = RepLogApp;
 
