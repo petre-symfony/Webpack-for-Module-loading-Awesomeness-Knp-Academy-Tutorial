@@ -1,6 +1,5 @@
 'use strict';
 const $ = require('jquery');
-window.jQuery = $;
 require('bootstrap');
 
 
