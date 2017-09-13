@@ -5,7 +5,7 @@ const $ = require('jquery');
 const swal = require('sweetalert2');
 require('sweetalert2/dist/sweetalert2.css');
 const Routing = require('./Routing');
-import _ from 'lodash/number';
+import { random } from 'lodash';
 
 
 let HelperInstances = new WeakMap();
@@ -176,7 +176,7 @@ class RepLogApp {
     const $form = this.$wrapper.find(RepLogApp._selectors.newRepForm);
     $form[0].reset();
     
-    $form.find('[name="reps"]').val(_.random(1, 10));
+    $form.find('[name="reps"]').val(random(1, 10));
   }
 
   _addRow(repLog) {
