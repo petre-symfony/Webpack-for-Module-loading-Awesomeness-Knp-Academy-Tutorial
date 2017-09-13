@@ -1,4 +1,5 @@
 const $ = require('jquery');
+require('bootstrap-sass');
 const RepLogApp = require('./Components/RepLogApp');
 
 $(document).ready(function() {
