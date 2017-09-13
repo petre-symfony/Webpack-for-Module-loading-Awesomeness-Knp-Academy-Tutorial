@@ -7,6 +7,23 @@ const styleLoader = {
   options: {}
 }
 
+const cssLoader = {
+  loader: 'css-loader',
+  options: {}
+}
+
+const sassLoader = {
+  loader: 'sass-loader',
+  options: {
+    sourceMap: true
+  }
+}
+
+const resolveUrlLoader = {
+  loader: 'resolve-url-loader',
+  options: {}
+}
+
 module.exports = {
   entry: {
     rep_log: './assets/js/rep_log.js',
@@ -34,16 +51,16 @@ module.exports = {
         test: /\.css$/,
         use: [
           styleLoader,
-          'css-loader'
+          cssLoader
         ]
       },
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'resolve-url-loader',
-          'sass-loader?sourceMap'
+          styleLoader,
+          cssLoader,
+          resolveUrlLoader,
+          sassLoader
         ]
       },
       {
