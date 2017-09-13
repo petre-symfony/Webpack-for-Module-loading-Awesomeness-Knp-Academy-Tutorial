@@ -2,6 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const styleLoader = {
+  loader: 'style-loader',
+  options: {}
+}
+
 module.exports = {
   entry: {
     rep_log: './assets/js/rep_log.js',
@@ -28,7 +33,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          styleLoader,
           'css-loader'
         ]
       },
