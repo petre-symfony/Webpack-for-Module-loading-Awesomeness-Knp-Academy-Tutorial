@@ -2,7 +2,6 @@
 const $ = require('jquery');
 require('bootstrap-sass');
 
-require('bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 require('font-awesome/css/font-awesome.css');
 require('../css/main.scss');
 
