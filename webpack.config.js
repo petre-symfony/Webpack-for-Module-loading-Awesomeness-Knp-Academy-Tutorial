@@ -103,6 +103,10 @@ module.exports = {
       //copies to {output}/static
       {from: './assets/static', to: 'static'}
     ]),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunk: 2
+    }),
   ],
   devtool: 'inline-source-map'
 }
