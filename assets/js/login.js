@@ -1,6 +1,6 @@
 'use strict';
-const $ = require('jquery');
-require('../css/login.css');
+import $ from 'jquery';
+import '../css/login.css';
 
 
 $(document).ready(function() {
