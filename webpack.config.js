@@ -105,7 +105,9 @@ module.exports = {
     ]),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunk: 2
+      minChunk: function(module){
+        return module.context && module.indexOf("node_modules") !== -1;
+      }
     }),
   ],
   devtool: 'inline-source-map'
