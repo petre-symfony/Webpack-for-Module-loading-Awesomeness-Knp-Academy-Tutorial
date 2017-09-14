@@ -121,7 +121,8 @@ module.exports = {
        'manifest'
       ],
       minChunk: Infinity,
-    })
+    }),
+    new ExtractTextPlugin('[name].css')
   ],
   devtool: 'inline-source-map',
   devServer: {
