@@ -104,11 +104,11 @@ module.exports = {
       {from: './assets/static', to: 'static'}
     ]),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunk: function(module){
-        return module.context && module.indexOf("node_modules") !== -1;
-      }
-    }),
+      //layout is an entry file
+      //anything including in layout, is not included in another output files
+      name: 'layout',
+      minChunk: Infinity,
+    })
   ],
   devtool: 'inline-source-map'
 }
