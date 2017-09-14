@@ -2,7 +2,7 @@
 
 {% block body %}
   <div class="row">
-    <div class="col-md-7 js-rep-log-table">
+    <div class="col-md-7 js-rep-log-table" data-rep-logs="{{ repLogsJson|e('html_attr') }}" >
       <h2>
         Lift History
       </h2>
@@ -34,8 +34,12 @@
     </div>
     <div class="col-md-5">
       <div class="leaderboard">
-        <h2 class="text-center">
-          <img class="dumbbell" src="{{ asset('assets/images/dumbbell.png') }}" />
+        <h2 class="text-center js-custom-popover"
+            data-toggle="popover"
+            title="About the Leaderboard"
+            data-content="Wnat to be the leader? Lift Stuff"
+        >
+          <img class="dumbbell" src="{{ asset('build/static/dumbbell.png') }}" />
           Leaderboard
         </h2>
 
@@ -45,22 +49,18 @@
   </div>
 {% endblock %}
 
-{% block stylesheets %}
-  {{ parent() }}
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.1.0/sweetalert2.min.css" />
-{% endblock %}
 
 {% block javascripts %}
   {{ parent() }}
 
-  <script src="https://cdn.jsdelivr.net/sweetalert2/6.1.0/sweetalert2.min.js"></script>
-  <script src="{{ asset('assets/dist/RepLogApp.js') }}"></script>
-
-  <script>
-    $(document).ready(function() {
-      var $wrapper = $('.js-rep-log-table');
-      var repLogApp = new RepLogApp($wrapper);
+  <script src="{{ asset('build/rep_log.js') }}"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.js-custom-popover').popover({
+        trigger: 'hover',
+        placement: 'left'
+      });
     });
   </script>
+
 {% endblock %}
