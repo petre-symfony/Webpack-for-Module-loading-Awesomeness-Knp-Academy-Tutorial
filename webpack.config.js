@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const styleLoader = {
   loader: 'style-loader',
@@ -58,19 +59,24 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          styleLoader,
-          cssLoader
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+            cssLoader
+          ],
+          //use this if CSS isn't extracted
+          fallback: styleLoader
+        })
       },
       {
         test: /\.scss$/,
-        use: [
-          styleLoader,
-          cssLoader,
-          resolveUrlLoader,
-          sassLoader
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+            cssLoader,
+            resolveUrlLoader,
+            sassLoader
+          ],
+          fallback: styleLoader
+        })
       },
       {
         test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
