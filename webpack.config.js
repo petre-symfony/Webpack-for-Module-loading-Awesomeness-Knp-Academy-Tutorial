@@ -104,9 +104,13 @@ module.exports = {
       {from: './assets/static', to: 'static'}
     ]),
     new webpack.optimize.CommonsChunkPlugin({
-      //layout is an entry file
-      //anything including in layout, is not included in another output files
-      name: 'layout',
+      name: [
+        //layout is an entry file
+        //anything including in layout, is not included in another output files
+       'layout',
+       //dumps the manifest in a separate file
+       'manifest'
+      ],
       minChunk: Infinity,
     })
   ],
