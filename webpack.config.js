@@ -119,6 +119,7 @@ module.exports = {
   ],
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './web'
+    contentBase: './web',
+    headers: { 'Access-Control-Allow-Origin': '*' }
   }
 }
